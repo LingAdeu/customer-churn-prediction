@@ -2,12 +2,12 @@
 # Addressing Customer Churn in an E-Commerce Company
 
 ## About
-In this project, we address a customer churn problem of 16.8% in an e-commerce company. Although the current churn rate is considered good by e-commerce standards (common churn rate: 22%), it results in substantial financial losses if not treated properly. We conducted a diagnostic analysis on historical data to understand the factors driving customer churn, focusing on comparing churned and non-churned customers in terms of their demographics and behavior.
+In this project, our goal is to reduce customer churn rate from 16.8% to 10% in an e-commerce company. While the current churn rate at 16.8% is below the global churn rate in an e-commerce industry, if not addressed soon and properly, this churn problem will pose a financial risk to the company. Here, we used a diagnostic analysis focusing on understanding possible factors driving churn by comparing the demographics, satisfaction, and behaviors of churned and non-churned customers. We also developed a classification model to predict churn, prioritizing the minimization of false negatives due to their financial impacts (false negative = 5 x false positive). 
 
-In addition to the data analysis, we built a classification model to predict customer churn focusing more on minimizing false negatives due to their higher financial cost. After conducting a series experiments and evaluating model performance and financial impacts, we selected XGBoost as the final model. Key features influencing churn predictions include tenure, cashback amount, recency of last order, number of addresses, and marital status. By using these insights and our model's predictions, companies can implement more targeted retention strategies and effectively reduce customer churn.
+After series of experiments exploiting resampling techniques (i.e., SMOTE, ADASYN, NearMiss v3) and 10 machine learning algorithms, we selected XGBoost as the final model based on both business (customer acquisition cost and retention cost) and machine learning metrics (F2 score), and identified two key factors which can be intervened for reducing the churn rate, namely tenure and cashback amount. The interventions can be done to customers predicted as churn by the model by increasing the cashback amount and lengthening the tenure. A simulation using 50% of intervention success rate, demonstrated the churn rate reduction to 10% is possible by utilizing the machine learning model and an intervention from the business stakeholder side.
 
 ## Data
-The dataset was obtained from [Kaggle](https://www.kaggle.com/datasets/ankitverma2010/ecommerce-customer-churn-analysis-and-prediction)
+The dataset was obtained from [Kaggle](https://www.kaggle.com/datasets/ankitverma2010/ecommerce-customer-churn-analysis-and-prediction) on an online retail company. This dataset consists of 15 numerical columns, including the target variable `Churn`, and 5 categorical columns. 
 
 ## Folder Organization
     .
@@ -17,7 +17,6 @@ The dataset was obtained from [Kaggle](https://www.kaggle.com/datasets/ankitverm
     │   └── clean_data_with_updated_values.csv      <- The clean dataset for a Tableau analysis.
     ├── img                                         <- Folder containing images for the notebook
     ├── model
-    │   ├── calibrated_best_model.pkl
     │   └── clf_final.pkl                           <- The final model
     ├── notebook
     │   └── notebook.ipynb                          <- Jupyter notebook file for data analysis and modeling

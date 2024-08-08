@@ -6,7 +6,7 @@ In this project, our goal is to reduce customer churn rate from 16.8% to 10% in 
 
 After series of experiments exploiting resampling techniques (i.e., SMOTE, ADASYN, NearMiss v3) and 10 machine learning algorithms, we selected XGBoost as the final model based on both business (customer acquisition cost and retention cost) and machine learning metrics (F2 score), and identified two key factors which can be intervened for reducing the churn rate, namely tenure and cashback amount. The interventions can be done to customers predicted as churn by the model by increasing the cashback amount and lengthening the tenure. A simulation using 50% of intervention success rate, demonstrated the churn rate reduction to 10% is possible by utilizing the machine learning model and an intervention from the business stakeholder side.
 
->[!important] Notebook
+>![important] Notebook
 > The notebook for storing every process of this project can be seen in folder [notebook](https://github.com/LingAdeu/customer-churn-prediction/blob/main/notebook/notebook.ipynb). Alternatively, kindly see [NBViewer version](https://nbviewer.org/github/LingAdeu/customer-churn-prediction/blob/main/notebook/notebook.ipynb) for a better display.
 
 ## Data

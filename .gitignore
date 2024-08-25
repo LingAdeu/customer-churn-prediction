@@ -2,3 +2,4 @@ tableau/*
 notebook/catboost_info
 __ARCHIEVED__
 data/clean_data.csv
+**/.DS_Store

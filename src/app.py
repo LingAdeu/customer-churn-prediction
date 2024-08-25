@@ -23,7 +23,8 @@ class OutlierHandling(BaseEstimator, TransformerMixin):
         return X
 
 # Load the trained model
-model = joblib.load('model/final_model.pkl')
+path = 'model/clf_final.pkl'
+model = joblib.load(path)
 
 # Define function for single prediction with probability
 def predict_single_instance(data):
@@ -44,7 +45,7 @@ st.title('Churn Prediction App')
 
 # Sidebar options
 st.sidebar.header('Options')
-option = st.sidebar.selectbox('Select an option:', ('Predict using CSV', 'Manual input for single instance'))
+option = st.sidebar.selectbox('Select an option:', ('Predict using CSV', 'Manual input'))
 
 if option == 'Predict using CSV':
     st.header('Upload a CSV file')
@@ -58,7 +59,7 @@ if option == 'Predict using CSV':
         csv = predictions_df.to_csv(index=False)
         st.download_button('Download Predictions', csv, 'predictions.csv', 'text/csv')
 
-elif option == 'Manual input for single instance':
+elif option == 'Manual input':
     st.header('Input Customer Data')
 
     # Input fields for manual input

@@ -105,6 +105,20 @@ elif option == 'Manual input':
         'CashbackAmount': CashbackAmount
     }
 
+    # if st.button('Predict'):
+    #     churn_proba = predict_single_instance(input_data)
+    #     st.write(f'There is a {churn_proba * 100:.2f}% chance the customer will churn.')
+    
     if st.button('Predict'):
         churn_proba = predict_single_instance(input_data)
-        st.write(f'There is a {churn_proba * 100:.2f}% chance the customer will churn.')
+        result_text = "YES" if churn_proba >= 0.5 else "NO"  # Assuming 0.5 as the threshold for churn
+        result_color = "red" if result_text == "YES" else "green"
+        
+        # Display the prediction result in color
+        st.markdown(
+            f"<h4>Churn Prediction: <span style='color:{result_color}'>{result_text}</span></h4>",
+            unsafe_allow_html=True
+        )
+        
+        # Display the probability
+        st.write(f"There is a {churn_proba * 100:.2f}% chance the customer will churn.")
